@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>生日快乐</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>胡海彬的生日祝福</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- 配置Tailwind主题色 -->
@@ -110,7 +110,6 @@
                 radial-gradient(circle at 10% 20%, rgba(255,105,180,0.1) 0%, transparent 20%),
                 radial-gradient(circle at 90% 70%, rgba(255,225,53,0.1) 0%, transparent 20%);
             background-attachment: fixed;
-            -webkit-tap-highlight-color: transparent;
         }
         .confetti {
             position: absolute;
@@ -190,201 +189,25 @@
             transform: translateX(-50%);
             border-radius: 1px;
         }
-        
-        /* 移动端优化样式 */
-        @media (max-width: 640px) {
-            .mobile-cake {
-                width: 70vw !important;
-                height: 60vw !important;
-            }
-            
-            .mobile-spacing {
-                padding: 0.75rem 0 !important;
-                margin: 0.5rem 0 !important;
-            }
-            
-            .mobile-text {
-                font-size: calc(100% + 1vw) !important;
-                line-height: 1.6 !important;
-            }
-            
-            .touch-optimize {
-                min-height: 44px;
-                min-width: 44px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            .photo-frame {
-                margin: 0.5rem !important;
-            }
-            
-            /* 隐藏部分装饰元素释放空间 */
-            .decorative-only {
-                display: none !important;
-            }
-            
-            /* 移动端音乐播放器优化 */
-            .music-player-container {
-                padding: 0.5rem !important;
-            }
-            
-            .music-player-title {
-                font-size: 1.2rem !important;
-                margin-bottom: 0.5rem !important;
-            }
-        }
-        
-        /* 横屏优化 */
-        @media screen and (max-height: 500px) and (orientation: landscape) {
-            .landscape-optimize {
-                padding-top: 1.5rem !important;
-                padding-bottom: 1.5rem !important;
-            }
-            
-            .landscape-hide {
-                display: none !important;
-            }
-            
-            /* 横屏音乐播放器优化 */
-            .music-player-container {
-                padding: 0.5rem 1rem !important;
-            }
-        }
-        
-        /* 小屏幕优化 */
-        @media (max-width: 380px) {
-            .mobile-cake {
-                width: 65vw !important;
-                height: 55vw !important;
-            }
-            
-            .photo-frame {
-                border-width: 4px !important;
-            }
-            
-            /* 小屏幕音乐播放器优化 */
-            .music-player-container {
-                padding: 0.3rem !important;
-            }
-            
-            .music-player-title {
-                font-size: 1.1rem !important;
-            }
-        }
-        
-        /* 音乐播放器容器样式 */
-        .music-player-container {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background-color: rgba(255, 243, 224, 0.95);
-            backdrop-filter: blur(8px);
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            padding: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .music-player-container.scrolled {
-            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-        }
-        
-        .play-button {
-            background-color: #FF69B4;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 3px 8px rgba(255, 105, 180, 0.4);
-        }
-        
-        .play-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.6);
-        }
-        
-        .play-button:active {
-            transform: scale(0.98);
-        }
-        
-        .music-info {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 0.8rem;
-        }
     </style>
 </head>
 <body class="min-h-screen overflow-x-hidden relative pb-16 font-cute">
     <!-- 动态彩带 -->
     <div id="confetti-container" class="fixed inset-0 pointer-events-none z-0"></div>
-    
-    <!-- 移动端音频提示（初始隐藏） -->
-    <div id="mobileAudioHint" class="fixed top-0 left-0 w-full bg-gradient-to-r from-birthday-pink/90 to-birthday-orange/90 text-white text-center py-3 z-50 hidden sm:hidden">
-        <div class="flex items-center justify-center">
-            <<i class="fa fa-volume-up mr-2"></</i>
-            <span>点击任意位置激活生日歌 🎵</span>
-            <<i class="fa fa-hand-pointer-o ml-2"></</i>
-        </div>
-    </div>
-    
-    <!-- 音乐播放区（移到最顶部，设置sticky固定） -->
-    <section class="music-player-container mb-4">
-        <div class="music-info">
-            <h3 class="music-player-title text-[clamp(1.2rem,4vw,1.6rem)] font-semibold text-birthday-pink text-shadow">
-                <<i class="fa fa-music mr-2"></</i>生日快乐歌 🎵
-            </h3>
-            <!-- 手动播放按钮 -->
-            <button id="manualPlayBtn" class="play-button">
-                <<i class="fa fa-play" id="playIcon"></</i>
-            </button>
-        </div>
-        
-        <!-- 响应式网易云音乐外链播放器（初始隐藏，滚动或点击后显示） -->
-        <div id="musicPlayer" class="flex justify-center hidden">
-            <iframe 
-                id="audioIframe"
-                frameborder="no" 
-                border="0" 
-                marginwidth="0" 
-                marginheight="0" 
-                class="w-full max-w-[330px] h-[86px] rounded-lg shadow-md touch-optimize"
-                src="//music.163.com/outchain/player?type=2&id=2624235389&auto=1&loop=1&height=66&muted=0">
-            </iframe>
-        </div>
-        
-        <!-- 播放状态提示 -->
-        <p id="playStatus" class="text-sm text-gray-600 mt-2 text-center">
-            <<i class="fa fa-info-circle mr-1"></</i> 滚动页面自动播放，或点击播放按钮
-        </p>
-    </section>
-    
     <!-- 头部区域 -->
-    <header class="pt-6 pb-6 text-center px-4 relative z-10 landscape-optimize">
+    <header class="pt-10 pb-6 text-center px-4 relative z-10">
         <!-- 装饰元素 -->
-        <div class="absolute top-5 left-5 w-12 h-12 rounded-full bg-birthday-yellow/30 float-slow hidden md:block decorative-only"></div>
-        <div class="absolute top-10 right-10 w-10 h-10 rounded-full bg-birthday-purple/30 float-medium hidden md:block decorative-only"></div>
-        <div class="absolute bottom-5 left-1/4 w-8 h-8 rounded-full bg-birthday-orange/30 float-fast hidden md:block decorative-only"></div>
-        
+        <div class="absolute top-5 left-5 w-12 h-12 rounded-full bg-birthday-yellow/30 float-slow hidden md:block"></div>
+        <div class="absolute top-10 right-10 w-10 h-10 rounded-full bg-birthday-purple/30 float-medium hidden md:block"></div>
+        <div class="absolute bottom-5 left-1/4 w-8 h-8 rounded-full bg-birthday-orange/30 float-fast hidden md:block"></div>
         <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-bold text-birthday-pink mb-2 animate-glow">生日快乐！</h1>
         <h2 class="text-[clamp(1.5rem,5vw,3rem)] text-birthday-orange mb-4 float-medium">胡海彬</h2>
-        <p class="text-[clamp(1rem,3vw,1.25rem)] text-gray-700 max-w-md mx-auto px-4 py-2 bg-white/60 rounded-full backdrop-blur-sm shadow-sm mobile-spacing">
+        <p class="text-[clamp(1rem,3vw,1.25rem)] text-gray-700 max-w-md mx-auto px-4 py-2 bg-white/60 rounded-full backdrop-blur-sm shadow-sm">
             🎂 愿你的每一天都闪闪发光，新的一岁万事顺意！🎊
         </p>
         
         <!-- 优化后的生日蛋糕 -->
-        <div class="mt-8 relative w-[clamp(180px,50vw,280px)] h-[clamp(180px,45vw,250px)] mx-auto float-slow mobile-cake">
+        <div class="mt-8 relative w-[clamp(180px,50vw,280px)] h-[clamp(180px,45vw,250px)] mx-auto float-slow">
             <!-- 蛋糕底座 -->
             <div class="absolute bottom-0 w-full h-3/5 bg-gradient-to-b from-birthday-orange to-birthday-orange/80 rounded-t-3xl">
                 <!-- 底座装饰纹理 -->
@@ -433,35 +256,33 @@
             <div class="absolute bottom-[97%] left-[55%] w-[8%] h-[18%] bg-gradient-to-t from-birthday-orange to-birthday-yellow rounded-full animate-flame animate-flame-glow z-20 transform -translate-x-1/2" style="animation-delay: 0.4s"></div>
         </div>
     </header>
-    
     <!-- 主体内容 -->
     <main class="max-w-3xl mx-auto px-4 py-6 relative z-10">
         <!-- 照片展示区（优化相框和排版） -->
         <section class="mb-10">
-            <h3 class="text-[clamp(1.25rem,4vw,1.75rem)] font-semibold text-birthday-purple mb-6 text-center text-shadow mobile-spacing">
+            <h3 class="text-[clamp(1.25rem,4vw,1.75rem)] font-semibold text-birthday-purple mb-6 text-center text-shadow">
                 <<i class="fa fa-camera-retro mr-2"></</i>我们的回忆
             </h3>
             <div class="grid grid-cols-1 gap-6">
-                <div class="photo-frame card-hover touch-optimize active:scale-95 transition-transform">
+                <div class="photo-frame card-hover">
                     <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/12989b4c60ac420b90966d171031a57c.jpg~tplv-a9rns2rl98-image.png?rcl=20251216191335BB77DFD306774F5F669D&rk3s=8e244e95&rrcfp=dafada99&x-expires=2082107616&x-signature=YHqTrrvDGOqpghhtg%2BydsZGDd6U%3D" 
                          alt="胡海彬的照片" 
                          class="w-full h-auto object-cover">
                 </div>
-                <div class="photo-frame card-hover touch-optimize active:scale-95 transition-transform">
+                <div class="photo-frame card-hover">
                     <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/0011c3b844254b9fa2d9b25526271190.jpg~tplv-a9rns2rl98-image.png?rcl=20251216191335BB77DFD306774F5F669D&rk3s=8e244e95&rrcfp=dafada99&x-expires=2082107616&x-signature=AwDvCaPe07CvAvbPGW3vUDsMEYg%3D" 
                          alt="胡海彬的照片" 
                          class="w-full h-auto object-cover">
                 </div>
             </div>
         </section>
-        
         <!-- 祝福语（优化卡片样式） -->
         <section class="mb-10">
             <div class="bg-white/80 rounded-2xl p-6 shadow-lg card-hover backdrop-blur-sm">
-                <h3 class="text-[clamp(1.25rem,4vw,1.75rem)] font-semibold text-birthday-pink mb-4 text-center text-shadow mobile-spacing">
+                <h3 class="text-[clamp(1.25rem,4vw,1.75rem)] font-semibold text-birthday-pink mb-4 text-center text-shadow">
                     <<i class="fa fa-heart mr-2"></</i>生日祝福
                 </h3>
-                <div class="text-base text-gray-700 leading-relaxed max-w-xl mx-auto mobile-text">
+                <div class="text-base text-gray-700 leading-relaxed max-w-xl mx-auto">
                     <p class="typewriter mb-4 text-birthday-purple font-medium">亲爱的胡海彬，生日快乐！</p>
                     <p class="mt-3 mb-3">愿这一天充满欢笑、惊喜和所有你喜欢的事物，新的一岁继续闪闪发光✨</p>
                     <p class="mb-4">未来的日子，我们一起继续创造更多有趣的回忆~</p>
@@ -469,15 +290,12 @@
                 </div>
             </div>
         </section>
-        
         <!-- 礼物盒互动区（优化3D效果） -->
         <section class="text-center mb-10">
-            <h3 class="text-[clamp(1.1rem,3vw,1.5rem)] text-gray-700 mb-6 touch-optimize mobile-spacing">
-                <<i class="fa fa-gift mr-2 text-birthday-yellow"></</i>
-                <span class="inline-block sm:hidden">点击拆礼物 🎁</span>
-                <span class="hidden sm:inline">点击礼物盒拆生日礼物 🎁</span>
+            <h3 class="text-[clamp(1.1rem,3vw,1.5rem)] text-gray-700 mb-6">
+                <<i class="fa fa-gift mr-2 text-birthday-yellow"></</i>点击礼物盒拆生日礼物 🎁
             </h3>
-            <div class="gift-box mx-auto w-[clamp(120px,40vw,180px)] h-[clamp(120px,40vw,180px)] touch-optimize active:scale-95 transition-transform">
+            <div class="gift-box mx-auto w-[clamp(120px,30vw,180px)] h-[clamp(120px,30vw,180px)]">
                 <div class="gift-box-inner relative w-full h-full">
                     <!-- 礼物盒主体 -->
                     <div class="gift-body absolute bottom-0 w-full h-3/4 bg-gradient-to-b from-birthday-pink to-birthday-pink/80 rounded-md"></div>
@@ -488,16 +306,22 @@
                     <div class="gift-ribbon-h absolute top-1/4 left-0 w-full h-1/6 bg-birthday-yellow"></div>
                 </div>
             </div>
-            <p id="giftMsg" class="mt-6 text-[clamp(1rem,3vw,1.25rem)] text-birthday-pink font-medium hidden animate-pulse mobile-text">祝你心想事成，好运连连！🎊</p>
+            <p id="giftMsg" class="mt-6 text-[clamp(1rem,3vw,1.25rem)] text-birthday-pink font-medium hidden animate-pulse">祝你心想事成，好运连连！🎊</p>
+        </section>
+        <!-- 生日歌播放区（设置自动循环） -->
+        <section class="text-center mb-8">
+            <h3 class="text-[clamp(1.1rem,3vw,1.5rem)] text-gray-700 mb-5">
+                <<i class="fa fa-music mr-2 text-birthday-orange"></</i>生日快乐歌 🎵
+            </h3>
+            <!-- 网易云音乐外链播放器（添加autoplay和loop参数实现自动循环） -->
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" 
+                    src="//music.163.com/outchain/player?type=2&id=2624235389&auto=1&loop=1&height=66">
+            </iframe>
+            <p class="text-sm text-gray-500 mt-2">🎶 自动循环播放，祝你生日快乐！</p>
         </section>
     </main>
-    
     <!-- 彩带和烟花效果脚本 -->
     <script>
-        // 全局变量
-        let isPlaying = false;
-        let scrollTriggered = false;
-        
         // 生成彩带
         function createConfetti() {
             const container = document.getElementById('confetti-container');
@@ -519,90 +343,13 @@
             }
         }
         
-        // 播放音乐
-        function playMusic() {
-            if (isPlaying) return;
-            
-            const musicPlayer = document.getElementById('musicPlayer');
-            const audioIframe = document.getElementById('audioIframe');
-            const playIcon = document.getElementById('playIcon');
-            const playStatus = document.getElementById('playStatus');
-            const musicContainer = document.querySelector('.music-player-container');
-            
-            // 显示播放器
-            musicPlayer.classList.remove('hidden');
-            musicPlayer.classList.add('flex');
-            
-            // 更新图标和状态
-            playIcon.classList.remove('fa-play');
-            playIcon.classList.add('fa-pause');
-            playStatus.innerHTML = '<<i class="fa fa-music mr-1"></</i> 正在播放生日歌，循环模式开启 🎶';
-            
-            // 添加滚动效果
-            musicContainer.classList.add('scrolled');
-            
-            // 重新加载iframe确保播放
-            audioIframe.src = audioIframe.src;
-            
-            isPlaying = true;
-            scrollTriggered = true;
-            
-            // 隐藏移动端提示
-            const mobileHint = document.getElementById('mobileAudioHint');
-            if (mobileHint) {
-                mobileHint.style.display = 'none';
-            }
-        }
-        
-        // 暂停音乐（可选功能）
-        function toggleMusic() {
-            const playIcon = document.getElementById('playIcon');
-            const playStatus = document.getElementById('playStatus');
-            const audioIframe = document.getElementById('audioIframe');
-            
-            if (isPlaying) {
-                // 暂停
-                audioIframe.src = audioIframe.src.replace('auto=1', 'auto=0');
-                playIcon.classList.remove('fa-pause');
-                playIcon.classList.add('fa-play');
-                playStatus.innerHTML = '<<i class="fa fa-pause-circle mr-1"></</i> 音乐已暂停，点击继续播放';
-                isPlaying = false;
-            } else {
-                // 播放
-                playMusic();
-            }
-        }
-        
         // 点击礼物盒显示祝福
         document.querySelector('.gift-box').addEventListener('click', function() {
             const giftMsg = document.getElementById('giftMsg');
             giftMsg.classList.remove('hidden');
             
-            // 添加触觉反馈（移动端）
-            if ('vibrate' in navigator) {
-                navigator.vibrate(50);
-            }
-            
             // 生成烟花效果
             createFireworks();
-            
-            // 自动播放音乐（如果还没播放）
-            if (!isPlaying) {
-                playMusic();
-            }
-        });
-        
-        // 触摸交互优化
-        document.querySelectorAll('.gift-box, .photo-frame').forEach(el => {
-            el.addEventListener('touchstart', function() {
-                this.classList.add('active:scale-95');
-            });
-            
-            el.addEventListener('touchend', function() {
-                setTimeout(() => {
-                    this.classList.remove('active:scale-95');
-                }, 150);
-            });
         });
         
         // 生成烟花效果
@@ -632,122 +379,14 @@
             }
         }
         
-        // 滚动触发播放
-        window.addEventListener('scroll', function() {
-            if (!scrollTriggered && window.scrollY > 50) {
-                playMusic();
-            }
-        });
-        
-        // 手动播放按钮点击事件
-        document.getElementById('manualPlayBtn').addEventListener('click', function() {
-            toggleMusic();
-        });
-        
         // 页面加载完成后执行
         window.addEventListener('load', function() {
             createConfetti();
-            
-            // 检测移动设备
-            const isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            
-            if (isMobile) {
-                // 显示移动端音频提示
-                const mobileHint = document.getElementById('mobileAudioHint');
-                if (mobileHint) {
-                    mobileHint.style.display = 'block';
-                    
-                    // 点击提示或页面任意位置隐藏提示
-                    mobileHint.addEventListener('click', function() {
-                        this.style.display = 'none';
-                        // 点击提示时也播放音乐
-                        if (!isPlaying) {
-                            playMusic();
-                        }
-                    });
-                    
-                    // 页面任意点击也隐藏提示并播放音乐
-                    document.body.addEventListener('touchstart', function hideHint() {
-                        mobileHint.style.display = 'none';
-                        if (!isPlaying) {
-                            playMusic();
-                        }
-                        document.body.removeEventListener('touchstart', hideHint);
-                    });
-                    
-                    // 5秒后自动隐藏提示
-                    setTimeout(() => {
-                        mobileHint.style.display = 'none';
-                    }, 5000);
-                }
-                
-                // 添加移动端长按提示
-                const giftBox = document.querySelector('.gift-box');
-                let pressTimer;
-                
-                giftBox.addEventListener('touchstart', function() {
-                    pressTimer = setTimeout(() => {
-                        const msg = document.getElementById('giftMsg');
-                        if (msg && msg.classList.contains('hidden')) {
-                            msg.textContent = '长按拆开有惊喜哦！🎁';
-                            msg.classList.remove('hidden');
-                            setTimeout(() => msg.classList.add('hidden'), 2000);
-                        }
-                    }, 1000);
-                });
-                
-                giftBox.addEventListener('touchend', function() {
-                    clearTimeout(pressTimer);
-                });
-            }
             
             // 补全打字机文本
             const typewriter = document.querySelector('.typewriter');
             if (typewriter && !typewriter.textContent) {
                 typewriter.textContent = '亲爱的胡海彬，生日快乐！';
-            }
-            
-            // 横屏检测
-            function checkOrientation() {
-                if (window.innerHeight < window.innerWidth && window.innerHeight < 500) {
-                    document.body.classList.add('landscape-mode');
-                } else {
-                    document.body.classList.remove('landscape-mode');
-                }
-            }
-            
-            checkOrientation();
-            window.addEventListener('resize', checkOrientation);
-            window.addEventListener('orientationchange', checkOrientation);
-            
-            // 尝试激活音频（通过用户交互）
-            let audioActivated = false;
-            
-            function activateAudio() {
-                if (!audioActivated) {
-                    audioActivated = true;
-                    
-                    // 尝试通过创建一个音频上下文来激活音频
-                    if (window.AudioContext || window.webkitAudioContext) {
-                        const AudioContext = window.AudioContext || window.webkitAudioContext;
-                        const audioContext = new AudioContext();
-                        if (audioContext.state === 'suspended') {
-                            audioContext.resume();
-                        }
-                    }
-                }
-            }
-            
-            // 用户第一次交互时激活音频
-            document.body.addEventListener('click', activateAudio);
-            document.body.addEventListener('touchstart', activateAudio);
-            
-            // 如果用户5秒内没有交互，自动激活音频
-            setTimeout(activateAudio, 5000);
-            
-            // 初始化时如果页面已有滚动，直接播放
-            if (window.scrollY > 50) {
-                setTimeout(playMusic, 1000);
             }
         });
     </script>
